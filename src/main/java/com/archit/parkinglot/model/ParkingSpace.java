@@ -14,6 +14,7 @@ public class ParkingSpace {
     @Id
     @GeneratedValue
     @Column(name = "id")
+    @JsonIgnore
     private Long parkingSpaceId;
 
     private Short parkingSpot;
@@ -23,6 +24,7 @@ public class ParkingSpace {
     @OneToOne
     private ParkingSlotType parkingSlotType;
 
+    @JsonIgnore
     private boolean isAvailable;
 
     @ManyToOne(fetch = FetchType.LAZY)

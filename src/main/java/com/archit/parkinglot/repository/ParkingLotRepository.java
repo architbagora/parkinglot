@@ -14,9 +14,8 @@ public class ParkingLotRepository {
 
     @Autowired
     EntityManager entityManager;
-
-    public ParkingLot findById(Integer id) {
-        return entityManager.find(ParkingLot.class, id);
+    public void save(ParkingLot parkingLot){
+        parkingLot.getParkingSpaces().stream().forEach(parkingSpace -> entityManager.persist(parkingSpace));
+        entityManager.persist(parkingLot);
     }
-
 }
